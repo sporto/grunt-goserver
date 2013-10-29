@@ -51,6 +51,7 @@ Type: `String`
 Default value: `''`
 
 Name of Go source file to build e.g. 'main'
+
 Extension is not necessary
 
 #### options.binPath
@@ -58,7 +59,9 @@ Type: `String`
 Default value: `''`
 
 Full path to Go binary folder
+
 Must be the full path, do not use ~/
+
 This is the path where your binary will be installed when doing 'go install'.
 
 ### Usage Examples
@@ -76,6 +79,36 @@ grunt.initConfig({
     },
   },
 })
+```
+#### Using with watch
+
+```js
+grunt.initConfig({
+  watch: {
+    go: {
+      files: ['**/*.go'],
+      tasks: ['goserver'],
+      options: {
+        nospawn: true,
+      }
+    }
+  },
+
+  goserver: {
+    default: {
+      srcPath: '/Users/John/Go/src/github.com/john/repo_name',
+      srcFile: 'main',
+      binPath: '/Users/John/Go/bin'
+    }
+  }
+});
+
+grunt.registerTask('start', function () {
+  grunt.task.run('goserver');
+  grunt.task.run('watch');
+});
+  
+grunt.loadNpmTasks('grunt-goserver');
 ```
 
 ## Contributing

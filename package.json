@@ -1,7 +1,7 @@
 {
   "name": "grunt-goserver",
   "description": "Grunt task to spawn and reload a Go server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/sporto/grunt-goserver",
   "author": {
     "name": "Sebastian Porto",
